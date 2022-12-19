@@ -1,0 +1,6 @@
+/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles/ECS-PRACTICE-CKC.dir
+/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles/edit_cache.dir
+/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles/rebuild_cache.dir
+/home/kc/dev/ECS-practice/impl-opengl/third-party/glad/CMakeFiles/glad.dir
+/home/kc/dev/ECS-practice/impl-opengl/third-party/glad/CMakeFiles/edit_cache.dir
+/home/kc/dev/ECS-practice/impl-opengl/third-party/glad/CMakeFiles/rebuild_cache.dir
