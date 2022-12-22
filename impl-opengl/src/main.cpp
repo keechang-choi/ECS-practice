@@ -1,10 +1,10 @@
 #include "window_manager.hpp"
 
 int main() {
-  ecs_opengl::WindowManager window_manager;
-  window_manager.init("First ECS practice", 1920, 1080, 0, 0);
-  while (1) {
-    ;
+  ecs_opengl::WindowManager window_manager{"First ECS practice", 640, 480, 0,
+                                           0};
+  while (!window_manager.ShouldClose()) {
+    glfwPollEvents();
   }
   return 0;
 }

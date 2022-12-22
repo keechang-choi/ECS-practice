@@ -1,8 +1,14 @@
 #include "window_manager.hpp"
 
 namespace ecs_opengl {
-void WindowManager::init(std::string const& window_title, uint32_t width,
-                         uint32_t height, uint32_t pos_x, uint32_t pos_y) {
+WindowManager::WindowManager(std::string name, uint32_t w, uint32_t h,
+                             uint32_t x, uint32_t y)
+    : window_title{name}, width{w}, height{h}, pos_x{x}, pos_y{y} {
+  Init();
+}
+
+WindowManager::~WindowManager() { Shutdown(); }
+void WindowManager::Init() {
   glfwInit();
   window =
       glfwCreateWindow(width, height, window_title.c_str(), nullptr, nullptr);
@@ -19,8 +25,8 @@ void WindowManager::init(std::string const& window_title, uint32_t width,
   glClearColor(0.f, 0.f, 0.f, 1.f);
   glEnable(GL_DEPTH_TEST);
 }
-void WindowManager::update() { glfwSwapBuffers(window); }
-void WindowManager::shutdown() {
+void WindowManager::Update() { glfwSwapBuffers(window); }
+void WindowManager::Shutdown() {
   glfwDestroyWindow(window);
   glfwTerminate();
 }
