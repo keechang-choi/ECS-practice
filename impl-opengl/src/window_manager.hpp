@@ -24,11 +24,11 @@ class WindowManager {
   void Init();
   void Shutdown();
 
-  std::string window_title;
-  uint32_t width;
-  uint32_t height;
-  uint32_t pos_x;
-  uint32_t pos_y;
-  GLFWwindow* window;
+  std::string window_title_;
+  uint32_t width_;
+  uint32_t height_;
+  uint32_t pos_x_;
+  uint32_t pos_y_;
+  GLFWwindow* window_;
 };
 }  // namespace ecs_opengl
