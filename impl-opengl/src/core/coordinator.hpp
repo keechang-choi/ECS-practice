@@ -9,6 +9,7 @@
 #include <memory>
 
 namespace ecs_opengl {
+
 class Coordinator {
  public:
   void Init() {
@@ -33,7 +34,7 @@ class Coordinator {
   }
 
   template <typename T>
-  void AddComponent(Entity entity, T Component) {
+  void AddComponent(Entity entity, T component) {
     component_manager_->AddComponent(entity, component);
 
     auto signature = entity_manager_->GetSignature(entity);
@@ -43,7 +44,7 @@ class Coordinator {
   }
 
   template <typename T>
-  void RemoveComponent(Entity entity, T Component) {
+  void RemoveComponent(Entity entity, T component) {
     component_manager_->RemoveComponent<T>(entity);
 
     auto signature = entity_manager_->GetSignature(entity);
@@ -53,18 +54,18 @@ class Coordinator {
   }
 
   template <typename T>
-  T& GetComponent(Entity entity) {
+  T& GetComponent(Entity entity) const {
     return component_manager_->GetComponent<T>(entity);
   }
 
   template <typename T>
-  ComponentType GetComponentType() {
+  ComponentType GetComponentType() const {
     return component_manager_->GetComponentType<T>();
   }
 
   // system methods
   template <typename T>
-  std::unique_ptr<T>& RegisterSystem() {
+  T* RegisterSystem() {
     return system_manager_->RegisterSystem<T>();
   }
 
@@ -73,9 +74,13 @@ class Coordinator {
     system_manager_->SetSignature<T>(signature);
   }
 
+  void SetCamera(Entity camera) { camera_ = camera; }
+  Entity GetCamera() const { return camera_; }
+
  private:
   std::unique_ptr<ComponentManager> component_manager_;
   std::unique_ptr<EntityManager> entity_manager_;
   std::unique_ptr<SystemManager> system_manager_;
+  Entity camera_;
 };
 }  // namespace ecs_opengl

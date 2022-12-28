@@ -12,12 +12,12 @@ namespace ecs_opengl {
 class SystemManager {
  public:
   template <typename T>
-  std::unique_ptr<T>& RegisterSystem() {
+  T* RegisterSystem() {
     const char* type_name = typeid(T).name();
     assert(systems_.find(type_name) == systems_.end() &&
            "Registering already existing system.");
     systems_.insert({type_name, std::make_unique<T>()});
-    return system;
+    return static_cast<T*>(systems_[type_name].get());
   }
 
   template <typename T>

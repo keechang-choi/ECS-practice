@@ -42,7 +42,7 @@ class ComponentManager {
 
   template <typename T>
   T& GetComponent(Entity entity) {
-    return GetComponentArray<T>()->GetDta(entity);
+    return GetComponentArray<T>()->GetData(entity);
   }
 
   void EntityDestroyed(Entity entity) {
@@ -58,11 +58,11 @@ class ComponentManager {
       component_arrays{};
   ComponentType next_component_type{};
   template <typename T>
-  std::unique_ptr<ComponentArray<T>>& GetComponentArray() {
+  ComponentArray<T>* GetComponentArray() {
     const char* type_name = typeid(T).name();
     assert(component_types.find(type_name) != component_types.end() &&
            "Component not registered!");
-    return component_arrays[type_name];
+    return static_cast<ComponentArray<T>*>(component_arrays[type_name].get());
   }
 };
 }  // namespace ecs_opengl

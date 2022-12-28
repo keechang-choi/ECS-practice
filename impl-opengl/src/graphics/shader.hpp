@@ -6,6 +6,7 @@
 // libs
 #include <glad/glad.h>
 
+#include <glm/ext.hpp>
 #include <glm/glm.hpp>
 
 namespace ecs_opengl {

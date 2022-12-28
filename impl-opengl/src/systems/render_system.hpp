@@ -1,5 +1,8 @@
 #pragma once
 
+#include "components/camera.hpp"
+#include "components/renderable.hpp"
+#include "components/transform.hpp"
 #include "core/coordinator.hpp"
 #include "core/system.hpp"
 #include "graphics/shader.hpp"

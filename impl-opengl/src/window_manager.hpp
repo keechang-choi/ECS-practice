@@ -18,7 +18,7 @@ class WindowManager {
   WindowManager& operator=(const WindowManager&) = delete;
 
   void Update();
-  bool ShouldClose() { return glfwWindowShouldClose(window); }
+  bool ShouldClose() { return glfwWindowShouldClose(window_); }
 
  private:
   void Init();
