@@ -393,7 +393,24 @@ CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o: \
  /home/kc/dev/ECS-practice/impl-opengl/src/window_manager.hpp \
  /usr/include/GLFW/glfw3.h /usr/include/c++/9/chrono \
  /usr/include/c++/9/ratio /usr/include/c++/9/bits/parse_numbers.h \
- /usr/include/c++/9/random /usr/include/c++/9/bits/random.h \
+ /usr/include/c++/9/iostream /usr/include/c++/9/ostream \
+ /usr/include/c++/9/ios /usr/include/c++/9/bits/ios_base.h \
+ /usr/include/c++/9/bits/locale_classes.h \
+ /usr/include/c++/9/bits/locale_classes.tcc \
+ /usr/include/c++/9/system_error \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h \
+ /usr/include/c++/9/streambuf /usr/include/c++/9/bits/streambuf.tcc \
+ /usr/include/c++/9/bits/basic_ios.h \
+ /usr/include/c++/9/bits/locale_facets.h /usr/include/c++/9/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h \
+ /usr/include/c++/9/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_inline.h \
+ /usr/include/c++/9/bits/locale_facets.tcc \
+ /usr/include/c++/9/bits/basic_ios.tcc \
+ /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
+ /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/random \
+ /usr/include/c++/9/bits/random.h \
  /usr/include/c++/9/bits/uniform_int_dist.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/opt_random.h \
  /usr/include/c++/9/bits/random.tcc /usr/include/c++/9/numeric \

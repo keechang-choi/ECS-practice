@@ -10,6 +10,7 @@
 
 // std
 #include <chrono>
+#include <iostream>
 #include <random>
 
 namespace ecs_opengl {
@@ -17,11 +18,17 @@ void App::run() {
   WindowManager window_manager{
       "First ECS practice", 640, 480, 0, 0,
   };
+  std::cout << "@@@@@@"
+            << "window init @@@@" << std::endl;
   Coordinator coordinator;
+  coordinator.Init();
 
   coordinator.RegisterComponent<Camera>();
   coordinator.RegisterComponent<Renderable>();
   coordinator.RegisterComponent<Transform>();
+
+  std::cout << "@@@@@@"
+            << "component register @@@@" << std::endl;
 
   const auto render_system = coordinator.RegisterSystem<RenderSystem>();
   {
@@ -32,6 +39,8 @@ void App::run() {
   }
   render_system->Init();
 
+  std::cout << "@@@@@@"
+            << "render system init @@@@" << std::endl;
   // camera
   {
     Entity camera = coordinator.CreateEntity();
