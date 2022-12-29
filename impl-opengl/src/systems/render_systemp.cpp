@@ -9,11 +9,12 @@
 
 // std
 #include <cmath>
+#include <iostream>
 
 namespace ecs_opengl {
 void RenderSystem::Init() {
-  shader_ = std::make_unique<Shader>("../shaders/simple_shader.vert",
-                                     "../shaders/simple_shader.frag");
+  shader_ = std::make_unique<Shader>("./shaders/simple_shader.vert",
+                                     "./shaders/simple_shader.frag");
 
   // assert camera in coordinator?
 
@@ -133,6 +134,7 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
   auto& camera_camera = coordinator.GetComponent<Camera>(camera);
 
   for (const auto& entity : GetEntities()) {
+    std::cout << "entity: " << entity << std::endl;
     const auto& transform = coordinator.GetComponent<Transform>(entity);
     const auto& renderable = coordinator.GetComponent<Renderable>(entity);
 
@@ -143,7 +145,7 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
 
     // yxz
     glm::mat4 rotation{1.f};
-    const float c3 = glm::cos(transform.rotation.z);
+    /*const float c3 = glm::cos(transform.rotation.z);
     const float s3 = glm::sin(transform.rotation.z);
     const float c2 = glm::cos(transform.rotation.x);
     const float s2 = glm::sin(transform.rotation.x);
@@ -164,7 +166,7 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
     rotation[2][1] = v.z;
     rotation[0][2] = w.x;
     rotation[1][2] = w.y;
-    rotation[2][2] = w.z;
+    rotation[2][2] = w.z;*/
 
     glm::mat4 translation{1.f};
     translation[0][3] = transform.translation.x;

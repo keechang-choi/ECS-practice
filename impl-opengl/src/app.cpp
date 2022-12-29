@@ -45,10 +45,10 @@ void App::run() {
   {
     Entity camera = coordinator.CreateEntity();
     coordinator.AddComponent(
-        camera, Transform{.translation = glm::vec3{0.f, 0.f, 500.f}});
-    coordinator.AddComponent(
-        camera, Camera{.projection_matrix =
-                           MakePerspectiveProjection(45.f, 1.f, 0.1f, 1000.f)});
+        camera, Transform{.translation = glm::vec3{0.f, 0.f, -10.f}});
+    coordinator.AddComponent(camera,
+                             Camera{.projection_matrix = glm::mat4{1.f}});
+    // MakePerspectiveProjection(45.f, 1.f, 0.1f, 1000.f)});
 
     coordinator.SetCamera(camera);
   }
@@ -65,31 +65,33 @@ void App::run() {
 
   for (auto& i : entities) {
     Entity entity = coordinator.CreateEntity();
-    coordinator.AddComponent(entity, Transform{
-                                         .translation =
-                                             glm::vec3{
-                                                 random_position(generator),
-                                                 random_position(generator),
-                                                 random_position(generator),
-                                             },
-                                         .rotation =
-                                             glm::vec3{
-                                                 random_rotation(generator),
-                                                 random_rotation(generator),
-                                                 random_rotation(generator),
-                                             },
-                                         .scale =
-                                             glm::vec3{
-                                                 scale,
-                                                 scale,
-                                                 scale,
-                                             },
-                                     });
-    coordinator.AddComponent(entity, Renderable{.color = glm::vec3{
-                                                    random_color(generator),
-                                                    random_color(generator),
-                                                    random_color(generator),
-                                                }});
+    coordinator.AddComponent(entity,
+                             Transform{
+                                 .translation =
+                                     glm::vec3{
+                                         0.f,  // random_position(generator),
+                                         0.f,  // random_position(generator),
+                                         0.f,  // random_position(generator),
+                                     },
+                                 .rotation =
+                                     glm::vec3{
+                                         random_rotation(generator),
+                                         random_rotation(generator),
+                                         random_rotation(generator),
+                                     },
+                                 .scale =
+                                     glm::vec3{
+                                         scale,
+                                         scale,
+                                         scale,
+                                     },
+                             });
+    coordinator.AddComponent(entity,
+                             Renderable{.color = glm::vec3{
+                                            1.f,  // random_color(generator),
+                                            1.f,  // random_color(generator),
+                                            1.f,  // random_color(generator),
+                                        }});
   }
   float dt = 0.0f;
 

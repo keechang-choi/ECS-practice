@@ -13,14 +13,18 @@ Shader::Shader(const std::string& vert_path, const std::string& frag_path) {
 
   // read
   std::ifstream vert_file;
+  std::cout << vert_path << std::endl;
   vert_file.open(vert_path);
+  std::cout << (bool)(vert_file) << std::endl;
   std::stringstream vert_file_stream;
   vert_file_stream << vert_file.rdbuf();
   vert_file.close();
   vert_file_contents = vert_file_stream.str();
 
   std::ifstream frag_file;
-  frag_file.open(vert_path);
+  std::cout << frag_path << std::endl;
+  frag_file.open(frag_path);
+  std::cout << (bool)(frag_file) << std::endl;
   std::stringstream frag_file_stream;
   frag_file_stream << frag_file.rdbuf();
   frag_file.close();
@@ -40,8 +44,8 @@ Shader::Shader(const std::string& vert_path, const std::string& frag_path) {
     std::cerr << "Error compiling vertex shader: " << info_log << std::endl;
   }
 
-  GLuint frag_shader = glCreateShader(GL_VERTEX_SHADER);
-  const GLchar* frag_shader_source = vert_file_contents.c_str();
+  GLuint frag_shader = glCreateShader(GL_FRAGMENT_SHADER);
+  const GLchar* frag_shader_source = frag_file_contents.c_str();
   glShaderSource(frag_shader, 1, &frag_shader_source, nullptr);
   glCompileShader(frag_shader);
   glGetShaderiv(frag_shader, GL_COMPILE_STATUS, &success);

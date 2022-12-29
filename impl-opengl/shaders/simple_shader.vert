@@ -12,7 +12,7 @@ out vec3 fragPosWorld;
 
 void main()
 {
-    fragPosWorld = vec3(uModel * vec4*(inPost, 1.0));
+    fragPosWorld = vec3(uModel * vec4(inPos, 1.0));
     normal = vec3(uModel * vec4(inNormal, 1.0));
     gl_Position = uProjection * uView * uModel * vec4(inPos, 1.0);
 }
