@@ -142,6 +142,78 @@ glad/fast:
 	$(MAKE) $(MAKESILENT) -f third-party/glad/CMakeFiles/glad.dir/build.make third-party/glad/CMakeFiles/glad.dir/build
 .PHONY : glad/fast
 
+src/app.o: src/app.cpp.o
+.PHONY : src/app.o
+
+# target to build an object file
+src/app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o
+.PHONY : src/app.cpp.o
+
+src/app.i: src/app.cpp.i
+.PHONY : src/app.i
+
+# target to preprocess a source file
+src/app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.i
+.PHONY : src/app.cpp.i
+
+src/app.s: src/app.cpp.s
+.PHONY : src/app.s
+
+# target to generate assembly for a file
+src/app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.s
+.PHONY : src/app.cpp.s
+
+src/components/camera.o: src/components/camera.cpp.o
+.PHONY : src/components/camera.o
+
+# target to build an object file
+src/components/camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o
+.PHONY : src/components/camera.cpp.o
+
+src/components/camera.i: src/components/camera.cpp.i
+.PHONY : src/components/camera.i
+
+# target to preprocess a source file
+src/components/camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.i
+.PHONY : src/components/camera.cpp.i
+
+src/components/camera.s: src/components/camera.cpp.s
+.PHONY : src/components/camera.s
+
+# target to generate assembly for a file
+src/components/camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.s
+.PHONY : src/components/camera.cpp.s
+
+src/graphics/shader.o: src/graphics/shader.cpp.o
+.PHONY : src/graphics/shader.o
+
+# target to build an object file
+src/graphics/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o
+.PHONY : src/graphics/shader.cpp.o
+
+src/graphics/shader.i: src/graphics/shader.cpp.i
+.PHONY : src/graphics/shader.i
+
+# target to preprocess a source file
+src/graphics/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.i
+.PHONY : src/graphics/shader.cpp.i
+
+src/graphics/shader.s: src/graphics/shader.cpp.s
+.PHONY : src/graphics/shader.s
+
+# target to generate assembly for a file
+src/graphics/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.s
+.PHONY : src/graphics/shader.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -165,6 +237,30 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/systems/render_systemp.o: src/systems/render_systemp.cpp.o
+.PHONY : src/systems/render_systemp.o
+
+# target to build an object file
+src/systems/render_systemp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o
+.PHONY : src/systems/render_systemp.cpp.o
+
+src/systems/render_systemp.i: src/systems/render_systemp.cpp.i
+.PHONY : src/systems/render_systemp.i
+
+# target to preprocess a source file
+src/systems/render_systemp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.i
+.PHONY : src/systems/render_systemp.cpp.i
+
+src/systems/render_systemp.s: src/systems/render_systemp.cpp.s
+.PHONY : src/systems/render_systemp.s
+
+# target to generate assembly for a file
+src/systems/render_systemp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.s
+.PHONY : src/systems/render_systemp.cpp.s
 
 src/window_manager.o: src/window_manager.cpp.o
 .PHONY : src/window_manager.o
@@ -200,9 +296,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ECS-PRACTICE-CKC"
 	@echo "... glad"
+	@echo "... src/app.o"
+	@echo "... src/app.i"
+	@echo "... src/app.s"
+	@echo "... src/components/camera.o"
+	@echo "... src/components/camera.i"
+	@echo "... src/components/camera.s"
+	@echo "... src/graphics/shader.o"
+	@echo "... src/graphics/shader.i"
+	@echo "... src/graphics/shader.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/systems/render_systemp.o"
+	@echo "... src/systems/render_systemp.i"
+	@echo "... src/systems/render_systemp.s"
 	@echo "... src/window_manager.o"
 	@echo "... src/window_manager.i"
 	@echo "... src/window_manager.s"

@@ -98,12 +98,12 @@ third-party/glad/clean: third-party/glad/CMakeFiles/glad.dir/clean
 CMakeFiles/ECS-PRACTICE-CKC.dir/all: third-party/glad/CMakeFiles/glad.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ECS-PRACTICE-CKC.dir/build.make CMakeFiles/ECS-PRACTICE-CKC.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=1,2,3 "Built target ECS-PRACTICE-CKC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target ECS-PRACTICE-CKC"
 .PHONY : CMakeFiles/ECS-PRACTICE-CKC.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ECS-PRACTICE-CKC.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kc/dev/ECS-practice/impl-opengl/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kc/dev/ECS-practice/impl-opengl/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ECS-PRACTICE-CKC.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kc/dev/ECS-practice/impl-opengl/CMakeFiles 0
 .PHONY : CMakeFiles/ECS-PRACTICE-CKC.dir/rule
@@ -124,7 +124,7 @@ CMakeFiles/ECS-PRACTICE-CKC.dir/clean:
 third-party/glad/CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f third-party/glad/CMakeFiles/glad.dir/build.make third-party/glad/CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f third-party/glad/CMakeFiles/glad.dir/build.make third-party/glad/CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=4,5 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=8,9 "Built target glad"
 .PHONY : third-party/glad/CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.

@@ -1,10 +1,11 @@
-#include "window_manager.hpp"
+#include <iostream>
 
+#include "app.hpp"
 int main() {
-  ecs_opengl::WindowManager window_manager;
-  window_manager.init("First ECS practice", 1920, 1080, 0, 0);
-  while (1) {
-    ;
-  }
+  ecs_opengl::App app;
+  std::cout << "@@@@@@"
+            << "app init @@@@" << std::endl;
+
+  app.run();
   return 0;
 }

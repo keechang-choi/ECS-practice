@@ -69,10 +69,52 @@ include CMakeFiles/ECS-PRACTICE-CKC.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ECS-PRACTICE-CKC.dir/flags.make
 
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/flags.make
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o: src/app.cpp
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o -MF CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o.d -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o -c /home/kc/dev/ECS-practice/impl-opengl/src/app.cpp
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kc/dev/ECS-practice/impl-opengl/src/app.cpp > CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.i
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kc/dev/ECS-practice/impl-opengl/src/app.cpp -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.s
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/flags.make
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o: src/components/camera.cpp
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o -MF CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o.d -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o -c /home/kc/dev/ECS-practice/impl-opengl/src/components/camera.cpp
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kc/dev/ECS-practice/impl-opengl/src/components/camera.cpp > CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.i
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kc/dev/ECS-practice/impl-opengl/src/components/camera.cpp -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.s
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/flags.make
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o: src/graphics/shader.cpp
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o -MF CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o.d -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o -c /home/kc/dev/ECS-practice/impl-opengl/src/graphics/shader.cpp
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kc/dev/ECS-practice/impl-opengl/src/graphics/shader.cpp > CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.i
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kc/dev/ECS-practice/impl-opengl/src/graphics/shader.cpp -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.s
+
 CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/flags.make
 CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o -MF CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o.d -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o -c /home/kc/dev/ECS-practice/impl-opengl/src/main.cpp
 
 CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.i: cmake_force
@@ -83,10 +125,24 @@ CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kc/dev/ECS-practice/impl-opengl/src/main.cpp -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.s
 
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/flags.make
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o: src/systems/render_systemp.cpp
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o -MF CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o.d -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o -c /home/kc/dev/ECS-practice/impl-opengl/src/systems/render_systemp.cpp
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kc/dev/ECS-practice/impl-opengl/src/systems/render_systemp.cpp > CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.i
+
+CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kc/dev/ECS-practice/impl-opengl/src/systems/render_systemp.cpp -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.s
+
 CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/flags.make
 CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o: src/window_manager.cpp
 CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o: CMakeFiles/ECS-PRACTICE-CKC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o -MF CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o.d -o CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o -c /home/kc/dev/ECS-practice/impl-opengl/src/window_manager.cpp
 
 CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.i: cmake_force
@@ -99,19 +155,27 @@ CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.s: cmake_force
 
 # Object files for target ECS-PRACTICE-CKC
 ECS__PRACTICE__CKC_OBJECTS = \
+"CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o" \
+"CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o" \
+"CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o" \
 "CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o" \
+"CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o" \
 "CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o"
 
 # External object files for target ECS-PRACTICE-CKC
 ECS__PRACTICE__CKC_EXTERNAL_OBJECTS =
 
+ECS-PRACTICE-CKC: CMakeFiles/ECS-PRACTICE-CKC.dir/src/app.cpp.o
+ECS-PRACTICE-CKC: CMakeFiles/ECS-PRACTICE-CKC.dir/src/components/camera.cpp.o
+ECS-PRACTICE-CKC: CMakeFiles/ECS-PRACTICE-CKC.dir/src/graphics/shader.cpp.o
 ECS-PRACTICE-CKC: CMakeFiles/ECS-PRACTICE-CKC.dir/src/main.cpp.o
+ECS-PRACTICE-CKC: CMakeFiles/ECS-PRACTICE-CKC.dir/src/systems/render_systemp.cpp.o
 ECS-PRACTICE-CKC: CMakeFiles/ECS-PRACTICE-CKC.dir/src/window_manager.cpp.o
 ECS-PRACTICE-CKC: CMakeFiles/ECS-PRACTICE-CKC.dir/build.make
 ECS-PRACTICE-CKC: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 ECS-PRACTICE-CKC: third-party/glad/libglad.a
 ECS-PRACTICE-CKC: CMakeFiles/ECS-PRACTICE-CKC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ECS-PRACTICE-CKC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kc/dev/ECS-practice/impl-opengl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ECS-PRACTICE-CKC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ECS-PRACTICE-CKC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
