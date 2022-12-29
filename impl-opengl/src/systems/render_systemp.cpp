@@ -18,82 +18,85 @@ void RenderSystem::Init() {
 
   // assert camera in coordinator?
 
-  std::vector<glm::vec3> vertices = {
-      glm::vec3{0.5f, 0.5f, -0.5f},    //
-      glm::vec3{0.5f, 0.5f, -0.5f},    //
-      glm::vec3{-0.5f, -0.5f, -0.5f},  //
-      glm::vec3{0.5f, -0.5f, -0.5f},   //
-      glm::vec3{-0.5f, 0.5f, -0.5f},   //
-      glm::vec3{-0.5f, -0.5f, -0.5f},  //
-      glm::vec3{-0.5f, -0.5f, 0.5},    //
-      glm::vec3{0.5f, -0.5f, 0.5},     //
-      glm::vec3{0.5f, 0.5f, 0.5},      //
-      glm::vec3{0.5f, 0.5f, 0.5},      //
-      glm::vec3{-0.5f, 0.5f, 0.5},     //
-      glm::vec3{-0.5f, -0.5f, 0.5},    //
-      glm::vec3{-0.5f, 0.5f, 0.5f},    //
-      glm::vec3{-0.5f, 0.5f, -0.5f},   //
-      glm::vec3{-0.5f, -0.5f, -0.5f},  //
-      glm::vec3{-0.5f, -0.5f, -0.5f},  //
-      glm::vec3{-0.5f, -0.5f, 0.5f},   //
-      glm::vec3{-0.5f, 0.5f, 0.5f},    //
-      glm::vec3{0.5f, 0.5f, 0.5},      //
-      glm::vec3{0.5f, 0.5f, -0.5},     //
-      glm::vec3{0.5f, -0.5f, -0.5},    //
-      glm::vec3{0.5f, -0.5f, -0.5},    //
-      glm::vec3{0.5f, -0.5f, 0.5},     //
-      glm::vec3{0.5f, 0.5f, 0.5},      //
-      glm::vec3{-0.5f, -0.5f, -0.5f},  //
-      glm::vec3{0.5f, -0.5f, -0.5f},   //
-      glm::vec3{0.5f, -0.5f, 0.5f},    //
-      glm::vec3{0.5f, -0.5f, 0.5f},    //
-      glm::vec3{-0.5f, -0.5f, 0.5f},   //
-      glm::vec3{-0.5f, -0.5f, -0.5f},  //
-      glm::vec3{-0.5f, 0.5f, -0.5},    //
-      glm::vec3{0.5f, 0.5f, -0.5},     //
-      glm::vec3{0.5f, 0.5f, 0.5},      //
-      glm::vec3{0.5f, 0.5f, 0.5},      //
-      glm::vec3{-0.5f, 0.5f, 0.5},     //
-      glm::vec3{-0.5f, 0.5f, -0.5},    //
-  };
+  std::vector<glm::vec3> vertices = {glm::vec3{-1.0f, -1.0f, 0.0f},  //
+                                     glm::vec3{1.0f, -1.0f, 0.0f},   //
+                                     glm::vec3{0.0f, 1.0f, 0.0f},    //
+                                     /*glm::vec3{-1.0f, -1.0f, -1.0f},  //
+                                     glm::vec3{-1.0f, -1.0f, 1.0f},   //
+                                     glm::vec3{-1.0f, 1.0f, 1.0f},    //
+                                     glm::vec3{1.0f, 1.0f, -1.0f},    //
+                                     glm::vec3{-1.0f, -1.0f, -1.0f},  //
+                                     glm::vec3{-1.0f, 1.0f, -1.0f},   //
+                                     glm::vec3{1.0f, -1.0f, 1.0f},    //
+                                     glm::vec3{-1.0f, -1.0f, -1.0f},  //
+                                     glm::vec3{1.0f, -1.0f, -1.0f},   //
+                                     glm::vec3{1.0f, 1.0f, -1.0f},    //
+                                     glm::vec3{1.0f, -1.0f, -1.0f},   //
+                                     glm::vec3{-1.0f, -1.0f, -1.0f},  //
+                                     glm::vec3{-1.0f, -1.0f, -1.0f},  //
+                                     glm::vec3{-1.0f, 1.0f, 1.0f},    //
+                                     glm::vec3{-1.0f, 1.0f, -1.0f},   //
+                                     glm::vec3{1.0f, -1.0f, 1.0f},    //
+                                     glm::vec3{-1.0f, -1.0f, 1.0f},   //
+                                     glm::vec3{-1.0f, -1.0f, -1.0f},  //
+                                     glm::vec3{-1.0f, 1.0f, 1.0f},    //
+                                     glm::vec3{-1.0f, -1.0f, 1.0f},   //
+                                     glm::vec3{1.0f, -1.0f, 1.0f},    //
+                                     glm::vec3{1.0f, 1.0f, 1.0f},     //
+                                     glm::vec3{1.0f, -1.0f, -1.0f},   //
+                                     glm::vec3{1.0f, 1.0f, -1.0f},    //
+                                     glm::vec3{1.0f, -1.0f, -1.0f},   //
+                                     glm::vec3{1.0f, 1.0f, 1.0f},     //
+                                     glm::vec3{1.0f, -1.0f, 1.0f},    //
+                                     glm::vec3{1.0f, 1.0f, 1.0f},     //
+                                     glm::vec3{1.0f, 1.0f, -1.0f},    //
+                                     glm::vec3{-1.0f, 1.0f, -1.0f},   //
+                                     glm::vec3{1.0f, 1.0f, 1.0f},     //
+                                     glm::vec3{-1.0f, 1.0f, -1.0f},   //
+                                     glm::vec3{-1.0f, 1.0f, 1.0f},    //
+                                     glm::vec3{1.0f, 1.0f, 1.0f},     //
+                                     glm::vec3{-1.0f, 1.0f, 1.0f},    //
+                                     glm::vec3{1.0f, -1.0f, 1.0f},    //
+                                     */ };
 
   std::vector<glm::vec3> normals = {
       glm::vec3{0.0f, 0.0f, -1.0f},  //
       glm::vec3{0.0f, 0.0f, -1.0f},  //
       glm::vec3{0.0f, 0.0f, -1.0f},  //
-      glm::vec3{0.0f, 0.0f, -1.0f},  //
-      glm::vec3{0.0f, 0.0f, -1.0f},  //
-      glm::vec3{0.0f, 0.0f, -1.0f},  //
-      glm::vec3{0.0f, 0.0f, 1.0f},   //
-      glm::vec3{0.0f, 0.0f, 1.0f},   //
-      glm::vec3{0.0f, 0.0f, 1.0f},   //
-      glm::vec3{0.0f, 0.0f, 1.0f},   //
-      glm::vec3{0.0f, 0.0f, 1.0f},   //
-      glm::vec3{0.0f, 0.0f, 1.0f},   //
-      glm::vec3{-1.0f, 0.0f, 0.0f},  //
-      glm::vec3{-1.0f, 0.0f, 0.0f},  //
-      glm::vec3{-1.0f, 0.0f, 0.0f},  //
-      glm::vec3{-1.0f, 0.0f, 0.0f},  //
-      glm::vec3{-1.0f, 0.0f, 0.0f},  //
-      glm::vec3{-1.0f, 0.0f, 0.0f},  //
-      glm::vec3{1.0f, 0.0f, 0.0f},   //
-      glm::vec3{1.0f, 0.0f, 0.0f},   //
-      glm::vec3{1.0f, 0.0f, 0.0f},   //
-      glm::vec3{1.0f, 0.0f, 0.0f},   //
-      glm::vec3{1.0f, 0.0f, 0.0f},   //
-      glm::vec3{1.0f, 0.0f, 0.0f},   //
-      glm::vec3{0.0f, -1.0f, 0.0f},  //
-      glm::vec3{0.0f, -1.0f, 0.0f},  //
-      glm::vec3{0.0f, -1.0f, 0.0f},  //
-      glm::vec3{0.0f, -1.0f, 0.0f},  //
-      glm::vec3{0.0f, -1.0f, 0.0f},  //
-      glm::vec3{0.0f, -1.0f, 0.0f},  //
-      glm::vec3{0.0f, 1.0f, 0.0f},   //
-      glm::vec3{0.0f, 1.0f, 0.0f},   //
-      glm::vec3{0.0f, 1.0f, 0.0f},   //
-      glm::vec3{0.0f, 1.0f, 0.0f},   //
-      glm::vec3{0.0f, 1.0f, 0.0f},   //
-      glm::vec3{0.0f, 1.0f, 0.0},    //
+                                     /*glm::vec3{0.0f, 0.0f, -1.0f},  //
+                                     glm::vec3{0.0f, 0.0f, -1.0f},  //
+                                     glm::vec3{0.0f, 0.0f, -1.0f},  //
+                                     glm::vec3{0.0f, 0.0f, 1.0f},   //
+                                     glm::vec3{0.0f, 0.0f, 1.0f},   //
+                                     glm::vec3{0.0f, 0.0f, 1.0f},   //
+                                     glm::vec3{0.0f, 0.0f, 1.0f},   //
+                                     glm::vec3{0.0f, 0.0f, 1.0f},   //
+                                     glm::vec3{0.0f, 0.0f, 1.0f},   //
+                                     glm::vec3{-1.0f, 0.0f, 0.0f},  //
+                                     glm::vec3{-1.0f, 0.0f, 0.0f},  //
+                                     glm::vec3{-1.0f, 0.0f, 0.0f},  //
+                                     glm::vec3{-1.0f, 0.0f, 0.0f},  //
+                                     glm::vec3{-1.0f, 0.0f, 0.0f},  //
+                                     glm::vec3{-1.0f, 0.0f, 0.0f},  //
+                                     glm::vec3{1.0f, 0.0f, 0.0f},   //
+                                     glm::vec3{1.0f, 0.0f, 0.0f},   //
+                                     glm::vec3{1.0f, 0.0f, 0.0f},   //
+                                     glm::vec3{1.0f, 0.0f, 0.0f},   //
+                                     glm::vec3{1.0f, 0.0f, 0.0f},   //
+                                     glm::vec3{1.0f, 0.0f, 0.0f},   //
+                                     glm::vec3{0.0f, -1.0f, 0.0f},  //
+                                     glm::vec3{0.0f, -1.0f, 0.0f},  //
+                                     glm::vec3{0.0f, -1.0f, 0.0f},  //
+                                     glm::vec3{0.0f, -1.0f, 0.0f},  //
+                                     glm::vec3{0.0f, -1.0f, 0.0f},  //
+                                     glm::vec3{0.0f, -1.0f, 0.0f},  //
+                                     glm::vec3{0.0f, 1.0f, 0.0f},   //
+                                     glm::vec3{0.0f, 1.0f, 0.0f},   //
+                                     glm::vec3{0.0f, 1.0f, 0.0f},   //
+                                     glm::vec3{0.0f, 1.0f, 0.0f},   //
+                                     glm::vec3{0.0f, 1.0f, 0.0f},   //
+                                     glm::vec3{0.0f, 1.0f, 0.0},    //
+                                     */
   };
 
   glGenVertexArrays(1, &vao_);
@@ -104,18 +107,19 @@ void RenderSystem::Init() {
   glBindBuffer(GL_ARRAY_BUFFER, vbo_vertices_);
   glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * vertices.size(),
                vertices.data(), GL_STATIC_DRAW);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3),
+  std::cout << "size: " << sizeof(glm::vec3) << std::endl;
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, /*sizeof(glm::vec3)*/ 0,
                         (void*)nullptr);
   glEnableVertexAttribArray(0);
 
   // surface normal
-  glGenBuffers(1, &vbo_normals_);
-  glBindBuffer(GL_ARRAY_BUFFER, vbo_normals_);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * normals.size(),
-               normals.data(), GL_STATIC_DRAW);
-  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3),
-                        (void*)nullptr);
-  glEnableVertexAttribArray(1);
+  // glGenBuffers(1, &vbo_normals_);
+  // glBindBuffer(GL_ARRAY_BUFFER, vbo_normals_);
+  // glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * normals.size(),
+  //              normals.data(), GL_STATIC_DRAW);
+  // glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3),
+  //                       (void*)nullptr);
+  // glEnableVertexAttribArray(1);
 
   // clear current vao
   glBindVertexArray(0);
@@ -134,7 +138,7 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
   auto& camera_camera = coordinator.GetComponent<Camera>(camera);
 
   for (const auto& entity : GetEntities()) {
-    std::cout << "entity: " << entity << std::endl;
+    // std::cout << "entity: " << entity << std::endl;
     const auto& transform = coordinator.GetComponent<Transform>(entity);
     const auto& renderable = coordinator.GetComponent<Renderable>(entity);
 
@@ -181,12 +185,29 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
     glm::mat4 model = translation * scale * rotation;
     glm::mat4 projection = camera_camera.projection_matrix;
 
+    // temp check
+    // TODO: add test
+    float width = 640.f;
+    float height = 480.f;
+    projection = glm::perspective(glm::radians(45.0f),
+                                  (float)width / (float)height, 0.1f, 100.0f);
+
+    view = glm::lookAt(
+        glm::vec3(4, 3, 3),  // Camera is at (4,3,3), in World Space
+        glm::vec3(0, 0, 0),  // and looks at the origin
+        glm::vec3(0, 1, 0)   // Head is up (set to 0,-1,0 to look upside-down)
+    );
+
     shader_->SetUniform<glm::mat4>("uModel", model);
     shader_->SetUniform<glm::mat4>("uView", view);
     shader_->SetUniform<glm::mat4>("uProjection", projection);
     shader_->SetUniform<glm::vec3>("uColor", renderable.color);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo_vertices_);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, /*sizeof(glm::vec3)*/ 0,
+                          (void*)nullptr);
 
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
   }
   // unbind
   glBindVertexArray(0);

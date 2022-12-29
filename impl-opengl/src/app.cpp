@@ -45,7 +45,7 @@ void App::run() {
   {
     Entity camera = coordinator.CreateEntity();
     coordinator.AddComponent(
-        camera, Transform{.translation = glm::vec3{0.f, 0.f, -10.f}});
+        camera, Transform{.translation = glm::vec3{0.f, 0.f, 10.f}});
     coordinator.AddComponent(camera,
                              Camera{.projection_matrix = glm::mat4{1.f}});
     // MakePerspectiveProjection(45.f, 1.f, 0.1f, 1000.f)});
@@ -97,9 +97,12 @@ void App::run() {
 
   while (!window_manager.ShouldClose()) {
     auto start_time = std::chrono::high_resolution_clock::now();
-    glfwPollEvents();
 
     render_system->Update(coordinator, dt);
+
+    // swap
+    window_manager.Update();
+    glfwPollEvents();
 
     auto stop_time = std::chrono::high_resolution_clock::now();
     dt = std::chrono::duration<float, std::chrono::seconds::period>(stop_time -
