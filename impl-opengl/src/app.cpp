@@ -45,7 +45,7 @@ void App::run() {
   {
     Entity camera = coordinator.CreateEntity();
     coordinator.AddComponent(
-        camera, Transform{.translation = glm::vec3{0.f, 0.f, 100.f}});
+        camera, Transform{.translation = glm::vec3{200.f, 200.f, 300.f}});
     coordinator.AddComponent(
         camera, Camera{.projection_matrix =
                            MakePerspectiveProjection(45.f, 1.f, 0.1f, 1000.f)});
