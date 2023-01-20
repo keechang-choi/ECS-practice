@@ -166,9 +166,11 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
     const auto& renderable = coordinator.GetComponent<Renderable>(entity);
 
     glm::mat4 view{1.f};
-    view[0][3] = -camera_transform.translation.x;
-    view[1][3] = -camera_transform.translation.y;
-    view[2][3] = -camera_transform.translation.z;
+    view = MakeViewMatrix(camera_transform.translation,
+                          glm::vec3{0.f, 0.f, 0.f}, glm::vec3{0.f, 1.f, 0.f});
+    // view[3][0] = -camera_transform.translation.x;
+    // view[3][1] = -camera_transform.translation.y;
+    // view[3][2] = -camera_transform.translation.z;
 
     // yxz
     glm::mat4 rotation{1.f};
@@ -213,14 +215,31 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
     // TODO: add test
     float width = 640.f;
     float height = 480.f;
-    projection = glm::perspective(glm::radians(45.0f),
-                                  (float)width / (float)height, 0.1f, 1000.0f);
+    // projection = glm::perspective(glm::radians(45.0f),
+    //                               (float)width / (float)height, 0.1f,
+    //                               1000.0f);
 
-    view = glm::lookAt(
-        glm::vec3(200, 200, 300),  // Camera is at (4,3,3), in World Space
-        glm::vec3(0, 0, 0),        // and looks at the origin
-        glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
-    );
+    // glm::mat4 glm_view = glm::lookAt(
+    //     glm::vec3(200, 200, 300),  // Camera is at (4,3,3), in World Space
+    //     glm::vec3(0, 0, 0),        // and looks at the origin
+    //     glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
+    // );
+
+    // std::cout << "view: " << std::endl;
+    // for (int i = 0; i < 4; i++) {
+    //   for (int j = 0; j < 4; j++) {
+    //     std::cout << view[j][i] << " ";
+    //   }
+    //   std::cout << std::endl;
+    // }
+
+    // std::cout << "glm_view: " << std::endl;
+    // for (int i = 0; i < 4; i++) {
+    //   for (int j = 0; j < 4; j++) {
+    //     std::cout << glm_view[j][i] << " ";
+    //   }
+    //   std::cout << std::endl;
+    // }
 
     shader_->SetUniform<glm::mat4>("uModel", model);
     shader_->SetUniform<glm::mat4>("uView", view);
