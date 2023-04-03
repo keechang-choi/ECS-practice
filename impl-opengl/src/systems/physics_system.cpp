@@ -14,8 +14,11 @@ void PhysicsSystem::Update(const Coordinator& coordinator, float dt) {
     auto const& gravity = coordinator.GetComponent<Gravity>(entity);
 
     transform.translation += rigid_body.velocity * dt;
+
+    transform.rotation += rigid_body.angular_velocity * dt;
     // mass?
     rigid_body.velocity += gravity.force * dt;
+    // anglular acceleration
   }
 }
 }  // namespace ecs_opengl

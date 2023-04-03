@@ -68,14 +68,16 @@ void App::run() {
 
     coordinator.SetCamera(camera);
   }
-  std::vector<Entity> entities(kMaxEntities - 1);
+  // std::vector<Entity> entities(kMaxEntities - 1);
+  std::vector<Entity> entities(3000);
 
   std::default_random_engine generator;
   std::uniform_real_distribution<float> random_position(-100.f, 100.f);
   std::uniform_real_distribution<float> random_rotation(0.f, 3.f);
-  std::uniform_real_distribution<float> random_scale(3.f, 5.f);
+  std::uniform_real_distribution<float> random_scale(1.f, 5.f);
   std::uniform_real_distribution<float> random_color(0.f, 1.f);
   std::uniform_real_distribution<float> random_gravity(-10.f, -1.f);
+  std::uniform_real_distribution<float> random_angular_velocity(0.f, 3.f);
 
   float scale = random_scale(generator);
 
@@ -86,10 +88,13 @@ void App::run() {
         entity, Gravity{glm::vec3{0.f, random_gravity(generator), 0.f}});
 
     coordinator.AddComponent(entity,
-                             RigidBody{
-                                 .velocity = glm::vec3{0.f, 0.f, 0.f},
-                                 .acceleration = glm::vec3{0.f, 0.f, 0.f},
-                             });
+                             RigidBody{.velocity = glm::vec3{0.f, 0.f, 0.f},
+                                       .acceleration = glm::vec3{0.f, 0.f, 0.f},
+                                       .angular_velocity = glm::vec3{
+                                           0.f,
+                                           0.f,
+                                           random_angular_velocity(generator),
+                                       }});
 
     coordinator.AddComponent(entity,
                              Transform{
@@ -107,9 +112,9 @@ void App::run() {
                                      },
                                  .scale =
                                      glm::vec3{
-                                         scale,
-                                         scale,
-                                         scale,
+                                         random_scale(generator),
+                                         random_scale(generator),
+                                         random_scale(generator),
                                      },
                              });
 
