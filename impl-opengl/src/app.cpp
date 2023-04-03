@@ -91,26 +91,27 @@ void App::run() {
                                  .acceleration = glm::vec3{0.f, 0.f, 0.f},
                              });
 
-    coordinator.AddComponent(entity, Transform{
-                                         .translation =
-                                             glm::vec3{
-                                                 random_position(generator),
-                                                 random_position(generator),
-                                                 random_position(generator),
-                                             },
-                                         .rotation =
-                                             glm::vec3{
-                                                 random_rotation(generator),
-                                                 random_rotation(generator),
-                                                 random_rotation(generator),
-                                             },
-                                         .scale =
-                                             glm::vec3{
-                                                 scale,
-                                                 scale,
-                                                 scale,
-                                             },
-                                     });
+    coordinator.AddComponent(entity,
+                             Transform{
+                                 .translation =
+                                     glm::vec3{
+                                         random_position(generator),
+                                         300.f + random_position(generator),
+                                         random_position(generator),
+                                     },
+                                 .rotation =
+                                     glm::vec3{
+                                         random_rotation(generator),
+                                         random_rotation(generator),
+                                         random_rotation(generator),
+                                     },
+                                 .scale =
+                                     glm::vec3{
+                                         scale,
+                                         scale,
+                                         scale,
+                                     },
+                             });
 
     coordinator.AddComponent(entity, Renderable{.color = glm::vec3{
                                                     random_color(generator),

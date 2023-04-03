@@ -188,13 +188,13 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
     const glm::vec3 w{(c2 * s1), (-s2), (c1 * c2)};
 
     rotation[0][0] = u.x;
-    rotation[1][0] = u.y;
-    rotation[2][0] = u.z;
-    rotation[0][1] = v.x;
+    rotation[0][1] = u.y;
+    rotation[0][2] = u.z;
+    rotation[1][0] = v.x;
     rotation[1][1] = v.y;
-    rotation[2][1] = v.z;
-    rotation[0][2] = w.x;
-    rotation[1][2] = w.y;
+    rotation[1][2] = v.z;
+    rotation[2][0] = w.x;
+    rotation[2][1] = w.y;
     rotation[2][2] = w.z;
 
     glm::mat4 translation{1.f};
@@ -207,9 +207,26 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
     scale[1][1] = transform.scale.y;
     scale[2][2] = transform.scale.z;
 
-    glm::mat4 model = translation * scale * rotation;
+    glm::mat4 model = translation * rotation * scale;
 
     glm::mat4 projection = camera_camera.projection_matrix;
+
+    glm::vec3 inv_scale = 1.f / transform.scale;
+    // RS^{-1}
+    glm::mat3 normal3 = {
+        inv_scale.x * u,
+        inv_scale.y * v,
+        inv_scale.z * w,
+    };
+    glm::mat4 normal4{normal3};
+
+    // std::cout << "mat normal: " << std::endl;
+    // for (int i = 0; i < 3; i++) {
+    //   for (int j = 0; j < 3; j++) {
+    //     std::cout << normal[j][i] << " ";
+    //   }
+    //   std::cout << std::endl;
+    // }
 
     // temp check
     // TODO: add test
@@ -244,6 +261,7 @@ void RenderSystem::Update(const Coordinator& coordinator, float dt) {
     shader_->SetUniform<glm::mat4>("uModel", model);
     shader_->SetUniform<glm::mat4>("uView", view);
     shader_->SetUniform<glm::mat4>("uProjection", projection);
+    shader_->SetUniform<glm::mat4>("uNormal", normal4);
     shader_->SetUniform<glm::vec3>("uColor", renderable.color);
     // glEnableVertexAttribArray(0);
     // glBindBuffer(GL_ARRAY_BUFFER, vbo_vertices_);

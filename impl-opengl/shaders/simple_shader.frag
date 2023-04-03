@@ -7,8 +7,8 @@ in vec3 fragPosWorld;
 
 uniform vec3 uColor;
 
-vec3 lightColor = vec3(1.0, 1.0, 1.0);
-vec3 lightPos = vec3(-100.0, 50.0, 100.0);
+vec3 lightColor = vec3(1.0f, 1.0f, 1.0f);
+vec3 lightPos = vec3(-100.0f, 50.0f, 100.0f);
 
 void main()
 {
