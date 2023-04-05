@@ -12,6 +12,7 @@ WindowManager::WindowManager(std::string name, uint32_t w, uint32_t h,
 
 WindowManager::~WindowManager() { Shutdown(); }
 void WindowManager::Init() {
+  quit_ = false;
   glfwInit();
 
   glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
@@ -37,4 +38,6 @@ void WindowManager::Shutdown() {
   glfwDestroyWindow(window_);
   glfwTerminate();
 }
+void WindowManager::QuitHandler(Event& event) { quit_ = true; }
+
 }  // namespace ecs_opengl

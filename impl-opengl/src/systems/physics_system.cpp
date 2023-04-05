@@ -8,6 +8,9 @@ namespace ecs_opengl {
 void PhysicsSystem::Init() {}
 
 void PhysicsSystem::Update(Coordinator& coordinator, float dt) {
+  if (GetEntities().size() == 0) {
+    coordinator.SendEvent(Events::Window::kQuit);
+  }
   for (auto const& entity : GetEntities()) {
     auto& rigid_body = coordinator.GetComponent<RigidBody>(entity);
     auto& transform = coordinator.GetComponent<Transform>(entity);

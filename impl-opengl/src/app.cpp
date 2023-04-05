@@ -13,6 +13,7 @@
 
 // std
 #include <chrono>
+#include <functional>
 #include <iostream>
 #include <random>
 
@@ -25,6 +26,10 @@ void App::run() {
             << "window init @@@@" << std::endl;
   Coordinator coordinator;
   coordinator.Init();
+
+  coordinator.AddEventListener(
+      Events::Window::kQuit, std::bind(&WindowManager::QuitHandler,
+                                       &window_manager, std::placeholders::_1));
 
   coordinator.RegisterComponent<Camera>();
   coordinator.RegisterComponent<Renderable>();
