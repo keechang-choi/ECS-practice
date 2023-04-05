@@ -7,7 +7,7 @@
 namespace ecs_opengl {
 void PhysicsSystem::Init() {}
 
-void PhysicsSystem::Update(const Coordinator& coordinator, float dt) {
+void PhysicsSystem::Update(Coordinator& coordinator, float dt) {
   for (auto const& entity : GetEntities()) {
     auto& rigid_body = coordinator.GetComponent<RigidBody>(entity);
     auto& transform = coordinator.GetComponent<Transform>(entity);
@@ -19,6 +19,10 @@ void PhysicsSystem::Update(const Coordinator& coordinator, float dt) {
     // mass?
     rigid_body.velocity += gravity.force * dt;
     // anglular acceleration
+
+    if (transform.translation.y < -100) {
+      coordinator.DestroyEntity(entity);
+    }
   }
 }
 }  // namespace ecs_opengl

@@ -101,7 +101,7 @@ void App::run() {
                                  .translation =
                                      glm::vec3{
                                          random_position(generator),
-                                         300.f + random_position(generator),
+                                         200.f + random_position(generator),
                                          random_position(generator),
                                      },
                                  .rotation =
