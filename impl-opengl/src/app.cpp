@@ -73,10 +73,12 @@ void App::run() {
 
     coordinator.SetCamera(camera);
   }
-  // std::vector<Entity> entities(kMaxEntities - 1);
-  std::vector<Entity> entities(3000);
+  std::vector<Entity> entities(kMaxEntities - 1);
+  // std::vector<Entity> entities(4999);
 
   std::default_random_engine generator;
+  generator.seed(1111);
+
   std::uniform_real_distribution<float> random_position(-100.f, 100.f);
   std::uniform_real_distribution<float> random_rotation(0.f, 3.f);
   std::uniform_real_distribution<float> random_scale(1.f, 5.f);

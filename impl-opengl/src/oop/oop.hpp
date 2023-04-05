@@ -6,6 +6,7 @@
 #include "components/renderable.hpp"
 #include "components/rigid_body.hpp"
 #include "components/transform.hpp"
+#include "core/event_manager.hpp"
 #include "graphics/shader.hpp"
 
 namespace oop_opengl {
@@ -15,7 +16,7 @@ class EntityTransform {
   EntityTransform(ecs_opengl::Transform t);
 };
 
-class EntityPhysics : EntityTransform {
+class EntityPhysics : public EntityTransform {
  public:
   ecs_opengl::Gravity gravity;
   ecs_opengl::RigidBody rigid_body;
@@ -23,14 +24,14 @@ class EntityPhysics : EntityTransform {
                 ecs_opengl::RigidBody rb);
 };
 
-class EntityRenderable : EntityPhysics {
+class EntityRenderable : public EntityPhysics {
  public:
   ecs_opengl::Renderable renderable;
   EntityRenderable(ecs_opengl::Transform t, ecs_opengl::Gravity g,
                    ecs_opengl::RigidBody rb, ecs_opengl::Renderable r);
 };
 
-class EntityCamera : EntityTransform {
+class EntityCamera : public EntityTransform {
  public:
   ecs_opengl::Camera camera;
   EntityCamera(ecs_opengl::Transform t, ecs_opengl::Camera c);
@@ -39,7 +40,8 @@ class EntityCamera : EntityTransform {
 class PhysicsSystem {
  public:
   void Init();
-  void Update(std::vector<EntityPhysics>& entities, float dt);
+  void Update(ecs_opengl::EventManager& event_manager,
+              std::vector<EntityRenderable>& entities, float dt);
 };
 
 class RenderSystem {
