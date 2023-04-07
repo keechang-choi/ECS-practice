@@ -10,10 +10,10 @@ int main() {
     app1.run();
   }
 
-  {
-    oop_opengl::App app2;
-    std::cout << "======== app2 oop ========" << std::endl;
-    app2.run();
-  }
+  // {
+  //   oop_opengl::App app2;
+  //   std::cout << "======== app2 oop ========" << std::endl;
+  //   app2.run();
+  // }
   return 0;
 }
