@@ -130,7 +130,7 @@ void RenderSystem::Init() {
   glBindBuffer(GL_ARRAY_BUFFER, vbo_vertices_);
   glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * vertices.size(),
                vertices.data(), GL_STATIC_DRAW);
-  std::cout << "size: " << sizeof(glm::vec3) << std::endl;
+  // std::cout << "size: " << sizeof(glm::vec3) << std::endl;
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3),
                         (void*)nullptr);
   glEnableVertexAttribArray(0);

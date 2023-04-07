@@ -46,7 +46,7 @@ class Coordinator {
   }
 
   template <typename T>
-  void RemoveComponent(Entity entity, T component) {
+  void RemoveComponent(Entity entity) {
     component_manager_->RemoveComponent<T>(entity);
 
     auto signature = entity_manager_->GetSignature(entity);

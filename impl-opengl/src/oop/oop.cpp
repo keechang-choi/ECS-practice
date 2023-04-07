@@ -141,7 +141,7 @@ void RenderSystem::Init() {
   glBindBuffer(GL_ARRAY_BUFFER, vbo_vertices_);
   glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * vertices.size(),
                vertices.data(), GL_STATIC_DRAW);
-  std::cout << "size: " << sizeof(glm::vec3) << std::endl;
+  // std::cout << "size: " << sizeof(glm::vec3) << std::endl;
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3),
                         (void*)nullptr);
   glEnableVertexAttribArray(0);
@@ -288,15 +288,21 @@ void PhysicsSystem::Init() {}
 
 void PhysicsSystem::Update(ecs_opengl::EventManager& event_manager,
                            std::vector<EntityRenderable>& entities, float dt) {
-  if (entities.size() == 0) {
-    event_manager.SendEvent(Events::Window::kQuit);
-  }
+  // if (entities.size() == 0) {
+  //   event_manager.SendEvent(Events::Window::kQuit);
+  // }
+  bool sw_quit = true;
   for (auto it = entities.begin(); it != entities.end(); /*it++*/) {
     auto& entity = *it;
     auto& rigid_body = entity.rigid_body;
     auto& transform = entity.transform;
     auto const& gravity = entity.gravity;
 
+    if (transform.translation.y < -50) {
+      it++;
+      continue;
+    }
+    sw_quit = false;
     transform.translation += rigid_body.velocity * dt;
 
     transform.rotation += rigid_body.angular_velocity * dt;
@@ -304,11 +310,15 @@ void PhysicsSystem::Update(ecs_opengl::EventManager& event_manager,
     rigid_body.velocity += gravity.force * dt;
     // anglular acceleration
 
-    if (transform.translation.y < -100) {
-      it = entities.erase(it);
-    } else {
-      it++;
-    }
+    it++;
+    // if (transform.translation.y < -100) {
+    //   it = entities.erase(it);
+    // } else {
+    //   it++;
+    // }
+  }
+  if (sw_quit) {
+    event_manager.SendEvent(Events::Window::kQuit);
   }
 }
 };  // namespace oop_opengl

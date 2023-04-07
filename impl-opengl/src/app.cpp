@@ -22,8 +22,8 @@ void App::run() {
   WindowManager window_manager{
       "First ECS practice", 640, 480, 0, 0,
   };
-  std::cout << "@@@@@@"
-            << "window init @@@@" << std::endl;
+  //   std::cout << "@@@@@@"
+  //             << "window init @@@@" << std::endl;
   Coordinator coordinator;
   coordinator.Init();
 
@@ -37,8 +37,8 @@ void App::run() {
   coordinator.RegisterComponent<RigidBody>();
   coordinator.RegisterComponent<Gravity>();
 
-  std::cout << "@@@@@@"
-            << "component register @@@@" << std::endl;
+  //   std::cout << "@@@@@@"
+  //             << "component register @@@@" << std::endl;
 
   const auto physics_system = coordinator.RegisterSystem<PhysicsSystem>();
   {
@@ -59,8 +59,8 @@ void App::run() {
   }
   render_system->Init();
 
-  std::cout << "@@@@@@"
-            << "render system init @@@@" << std::endl;
+  //   std::cout << "@@@@@@"
+  //             << "render system init @@@@" << std::endl;
   // camera
   {
     Entity camera = coordinator.CreateEntity();
@@ -108,7 +108,7 @@ void App::run() {
                                  .translation =
                                      glm::vec3{
                                          random_position(generator),
-                                         200.f + random_position(generator),
+                                         300.f + random_position(generator),
                                          random_position(generator),
                                      },
                                  .rotation =

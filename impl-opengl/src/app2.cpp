@@ -18,8 +18,8 @@ void App::run() {
   ecs_opengl::WindowManager window_manager{
       "First ECS practice", 640, 480, 0, 0,
   };
-  std::cout << "@@@@@@"
-            << "window init @@@@" << std::endl;
+  //   std::cout << "@@@@@@"
+  //             << "window init @@@@" << std::endl;
 
   ecs_opengl::EventManager event_manager{};
 
@@ -27,8 +27,8 @@ void App::run() {
                             std::bind(&ecs_opengl::WindowManager::QuitHandler,
                                       &window_manager, std::placeholders::_1));
 
-  std::cout << "@@@@@@"
-            << "component register @@@@" << std::endl;
+  //   std::cout << "@@@@@@"
+  //             << "component register @@@@" << std::endl;
 
   PhysicsSystem physics_system{};
   physics_system.Init();
@@ -36,8 +36,8 @@ void App::run() {
   RenderSystem render_system{};
   render_system.Init();
 
-  std::cout << "@@@@@@"
-            << "render system init @@@@" << std::endl;
+  //   std::cout << "@@@@@@"
+  //             << "render system init @@@@" << std::endl;
   // camera
 
   EntityCamera camera{
