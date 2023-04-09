@@ -35,4 +35,13 @@ $$
   | ![image](https://user-images.githubusercontent.com/49244613/229608157-f690f228-acbe-49fa-bcb7-18adf342c2d2.png) | ![image](https://user-images.githubusercontent.com/49244613/229608179-37075c24-6c79-4275-afe5-cedf18d43afc.png) |
 
 ## step-4
+- Demo
+  - ![ECS-demo](https://user-images.githubusercontent.com/49244613/230783393-f6a595c1-9f83-4029-8032-641fb0c46c5a.gif)
 - verification
+```
+valgrind --tool=cachegrind ./ECS-PRACTICE-CKC
+```
+- D1 cache miss comparison
+  |            ECS                        |              OOP                      |
+  |:-------------------------------------:|:-------------------------------------:|
+  | ![image](https://user-images.githubusercontent.com/49244613/230783353-cb029e6f-a592-4abf-b3f2-517087bae443.png) | ![image](https://user-images.githubusercontent.com/49244613/230783359-726e06a4-d0d5-4e41-a663-be9d4b95b3c6.png) |
