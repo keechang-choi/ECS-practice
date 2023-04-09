@@ -2,6 +2,7 @@
 
 #include "component_manager.hpp"
 #include "entity_manager.hpp"
+#include "event_manager.hpp"
 #include "system_manager.hpp"
 #include "types.hpp"
 
@@ -16,6 +17,7 @@ class Coordinator {
     component_manager_ = std::make_unique<ComponentManager>();
     entity_manager_ = std::make_unique<EntityManager>();
     system_manager_ = std::make_unique<SystemManager>();
+    event_manager_ = std::make_unique<EventManager>();
   }
 
   // Entity methods
@@ -44,7 +46,7 @@ class Coordinator {
   }
 
   template <typename T>
-  void RemoveComponent(Entity entity, T component) {
+  void RemoveComponent(Entity entity) {
     component_manager_->RemoveComponent<T>(entity);
 
     auto signature = entity_manager_->GetSignature(entity);
@@ -77,10 +79,21 @@ class Coordinator {
   void SetCamera(Entity camera) { camera_ = camera; }
   Entity GetCamera() const { return camera_; }
 
+  // Event methods
+  void AddEventListener(EventId eventId,
+                        std::function<void(Event&)> const& listener) {
+    event_manager_->AddListener(eventId, listener);
+  }
+
+  void SendEvent(Event& event) { event_manager_->SendEvent(event); }
+
+  void SendEvent(EventId eventId) { event_manager_->SendEvent(eventId); }
+
  private:
   std::unique_ptr<ComponentManager> component_manager_;
   std::unique_ptr<EntityManager> entity_manager_;
   std::unique_ptr<SystemManager> system_manager_;
+  std::unique_ptr<EventManager> event_manager_;
   Entity camera_;
 };
 }  // namespace ecs_opengl

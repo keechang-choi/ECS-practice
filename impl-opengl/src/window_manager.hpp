@@ -7,6 +7,8 @@
 // std
 #include <string>
 
+#include "core/event.hpp"
+
 namespace ecs_opengl {
 class WindowManager {
  public:
@@ -18,7 +20,8 @@ class WindowManager {
   WindowManager& operator=(const WindowManager&) = delete;
 
   void Update();
-  bool ShouldClose() { return glfwWindowShouldClose(window_); }
+  void QuitHandler(Event& event);
+  bool ShouldClose() { return glfwWindowShouldClose(window_) | quit_; }
 
  private:
   void Init();
@@ -30,5 +33,6 @@ class WindowManager {
   uint32_t pos_x_;
   uint32_t pos_y_;
   GLFWwindow* window_;
+  bool quit_;
 };
 }  // namespace ecs_opengl

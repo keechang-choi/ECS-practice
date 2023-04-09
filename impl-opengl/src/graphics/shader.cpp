@@ -15,7 +15,7 @@ Shader::Shader(const std::string& vert_path, const std::string& frag_path) {
   std::ifstream vert_file;
   std::cout << vert_path << std::endl;
   vert_file.open(vert_path);
-  std::cout << (bool)(vert_file) << std::endl;
+  std::cout << "- " << (bool)(vert_file) << std::endl;
   std::stringstream vert_file_stream;
   vert_file_stream << vert_file.rdbuf();
   vert_file.close();
@@ -24,7 +24,7 @@ Shader::Shader(const std::string& vert_path, const std::string& frag_path) {
   std::ifstream frag_file;
   std::cout << frag_path << std::endl;
   frag_file.open(frag_path);
-  std::cout << (bool)(frag_file) << std::endl;
+  std::cout << "- " << (bool)(frag_file) << std::endl;
   std::stringstream frag_file_stream;
   frag_file_stream << frag_file.rdbuf();
   frag_file.close();
