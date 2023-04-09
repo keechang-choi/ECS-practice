@@ -11,14 +11,16 @@ namespace oop_opengl {
 EntityTransform::EntityTransform(ecs_opengl::Transform t) : transform{t} {};
 
 EntityPhysics::EntityPhysics(ecs_opengl::Transform t, ecs_opengl::Gravity g,
-                             ecs_opengl::RigidBody rb)
-    : EntityTransform(t), gravity{g}, rigid_body{rb} {};
+                             ecs_opengl::RigidBody rb,
+                             ecs_opengl::Rotational ro)
+    : EntityTransform(t), gravity{g}, rigid_body{rb}, rotational{ro} {};
 
 EntityRenderable::EntityRenderable(ecs_opengl::Transform t,
                                    ecs_opengl::Gravity g,
                                    ecs_opengl::RigidBody rb,
+                                   ecs_opengl::Rotational ro,
                                    ecs_opengl::Renderable r)
-    : EntityPhysics(t, g, rb), renderable{r} {};
+    : EntityPhysics(t, g, rb, ro), renderable{r} {};
 
 EntityCamera::EntityCamera(ecs_opengl::Transform t, ecs_opengl::Camera c)
     : EntityTransform(t), camera{c} {};
@@ -159,8 +161,9 @@ void RenderSystem::Init() {
   glBindVertexArray(0);
 }
 
-void RenderSystem::Update(const EntityCamera& entity_camera,
-                          std::vector<EntityRenderable>& entities, float dt) {
+void RenderSystem::Update(
+    const EntityCamera& entity_camera,
+    std::vector<std::unique_ptr<EntityRenderable>>& entities, float dt) {
   glClearColor(0.f, 0.f, 0.f, 1.f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -171,8 +174,8 @@ void RenderSystem::Update(const EntityCamera& entity_camera,
   auto& camera_camera = entity_camera.camera;
 
   for (const auto& entity : entities) {
-    const auto& transform = entity.transform;
-    const auto& renderable = entity.renderable;
+    const auto& transform = entity->transform;
+    const auto& renderable = entity->renderable;
 
     glm::mat4 view{1.f};
     view = ecs_opengl::MakeViewMatrix(camera_transform.translation,
@@ -286,17 +289,18 @@ void RenderSystem::Update(const EntityCamera& entity_camera,
 
 void PhysicsSystem::Init() {}
 
-void PhysicsSystem::Update(ecs_opengl::EventManager& event_manager,
-                           std::vector<EntityRenderable>& entities, float dt) {
+void PhysicsSystem::Update(
+    ecs_opengl::EventManager& event_manager,
+    std::vector<std::unique_ptr<EntityRenderable>>& entities, float dt) {
   // if (entities.size() == 0) {
   //   event_manager.SendEvent(Events::Window::kQuit);
   // }
   bool sw_quit = true;
   for (auto it = entities.begin(); it != entities.end(); /*it++*/) {
     auto& entity = *it;
-    auto& rigid_body = entity.rigid_body;
-    auto& transform = entity.transform;
-    auto const& gravity = entity.gravity;
+    auto& rigid_body = entity->rigid_body;
+    auto& transform = entity->transform;
+    auto const& gravity = entity->gravity;
 
     if (transform.translation.y < -50) {
       it++;
@@ -305,9 +309,42 @@ void PhysicsSystem::Update(ecs_opengl::EventManager& event_manager,
     sw_quit = false;
     transform.translation += rigid_body.velocity * dt;
 
-    transform.rotation += rigid_body.angular_velocity * dt;
     // mass?
     rigid_body.velocity += gravity.force * dt;
+
+    it++;
+    // if (transform.translation.y < -100) {
+    //   it = entities.erase(it);
+    // } else {
+    //   it++;
+    // }
+  }
+  if (sw_quit) {
+    event_manager.SendEvent(Events::Window::kQuit);
+  }
+}
+
+void RotationSystem::Init() {}
+
+void RotationSystem::Update(
+    ecs_opengl::EventManager& event_manager,
+    std::vector<std::unique_ptr<EntityRenderable>>& entities, float dt) {
+  // if (entities.size() == 0) {
+  //   event_manager.SendEvent(Events::Window::kQuit);
+  // }
+  bool sw_quit = true;
+  for (auto it = entities.begin(); it != entities.end(); /*it++*/) {
+    auto& entity = *it;
+    auto& rotational = entity->rotational;
+    auto& transform = entity->transform;
+
+    if (transform.translation.y < -50) {
+      it++;
+      continue;
+    }
+    sw_quit = false;
+
+    transform.rotation += rotational.angular_velocity * dt;
     // anglular acceleration
 
     it++;

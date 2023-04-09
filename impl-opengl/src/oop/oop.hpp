@@ -5,6 +5,7 @@
 #include "components/gravity.hpp"
 #include "components/renderable.hpp"
 #include "components/rigid_body.hpp"
+#include "components/rotational.hpp"
 #include "components/transform.hpp"
 #include "core/event_manager.hpp"
 #include "graphics/shader.hpp"
@@ -20,15 +21,17 @@ class EntityPhysics : public EntityTransform {
  public:
   ecs_opengl::Gravity gravity;
   ecs_opengl::RigidBody rigid_body;
+  ecs_opengl::Rotational rotational;
   EntityPhysics(ecs_opengl::Transform t, ecs_opengl::Gravity g,
-                ecs_opengl::RigidBody rb);
+                ecs_opengl::RigidBody rb, ecs_opengl::Rotational ro);
 };
 
 class EntityRenderable : public EntityPhysics {
  public:
   ecs_opengl::Renderable renderable;
   EntityRenderable(ecs_opengl::Transform t, ecs_opengl::Gravity g,
-                   ecs_opengl::RigidBody rb, ecs_opengl::Renderable r);
+                   ecs_opengl::RigidBody rb, ecs_opengl::Rotational ro,
+                   ecs_opengl::Renderable r);
 };
 
 class EntityCamera : public EntityTransform {
@@ -41,14 +44,24 @@ class PhysicsSystem {
  public:
   void Init();
   void Update(ecs_opengl::EventManager& event_manager,
-              std::vector<EntityRenderable>& entities, float dt);
+              std::vector<std::unique_ptr<EntityRenderable>>& entities,
+              float dt);
+};
+
+class RotationSystem {
+ public:
+  void Init();
+  void Update(ecs_opengl::EventManager& event_manager,
+              std::vector<std::unique_ptr<EntityRenderable>>& entities,
+              float dt);
 };
 
 class RenderSystem {
  public:
   void Init();
   void Update(const EntityCamera& entity_camera,
-              std::vector<EntityRenderable>& entities, float dt);
+              std::vector<std::unique_ptr<EntityRenderable>>& entities,
+              float dt);
 
  private:
   std::unique_ptr<ecs_opengl::Shader> shader_;

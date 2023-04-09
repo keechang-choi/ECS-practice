@@ -6,7 +6,7 @@
 
 namespace ecs_opengl {
 using Entity = std::uint32_t;
-const Entity kMaxEntities = 500;
+const Entity kMaxEntities = 1000;
 using ComponentType = std::uint8_t;
 const ComponentType kMaxComponents = 32;
 using Signature = std::bitset<kMaxComponents>;

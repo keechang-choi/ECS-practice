@@ -4,16 +4,19 @@
 #include "components/gravity.hpp"
 #include "components/renderable.hpp"
 #include "components/rigid_body.hpp"
+#include "components/rotational.hpp"
 #include "components/transform.hpp"
 #include "core/coordinator.hpp"
 #include "core/types.hpp"
 #include "systems/physics_system.hpp"
 #include "systems/render_system.hpp"
+#include "systems/rotational_system.hpp"
 #include "window_manager.hpp"
 
 // std
 #include <chrono>
 #include <functional>
+#include <iomanip>
 #include <iostream>
 #include <random>
 
@@ -36,6 +39,7 @@ void App::run() {
   coordinator.RegisterComponent<Transform>();
   coordinator.RegisterComponent<RigidBody>();
   coordinator.RegisterComponent<Gravity>();
+  coordinator.RegisterComponent<Rotational>();
 
   //   std::cout << "@@@@@@"
   //             << "component register @@@@" << std::endl;
@@ -49,6 +53,15 @@ void App::run() {
     coordinator.SetSystemSignature<PhysicsSystem>(signature);
   }
   physics_system->Init();
+
+  const auto rotational_system = coordinator.RegisterSystem<RotationalSystem>();
+  {
+    Signature signature;
+    signature.set(coordinator.GetComponentType<Rotational>());
+    signature.set(coordinator.GetComponentType<Transform>());
+    coordinator.SetSystemSignature<RotationalSystem>(signature);
+  }
+  rotational_system->Init();
 
   const auto render_system = coordinator.RegisterSystem<RenderSystem>();
   {
@@ -95,13 +108,17 @@ void App::run() {
         entity, Gravity{glm::vec3{0.f, random_gravity(generator), 0.f}});
 
     coordinator.AddComponent(entity,
-                             RigidBody{.velocity = glm::vec3{0.f, 0.f, 0.f},
-                                       .acceleration = glm::vec3{0.f, 0.f, 0.f},
-                                       .angular_velocity = glm::vec3{
-                                           0.f,
-                                           0.f,
-                                           random_angular_velocity(generator),
-                                       }});
+                             RigidBody{
+                                 .velocity = glm::vec3{0.f, 0.f, 0.f},
+                                 .acceleration = glm::vec3{0.f, 0.f, 0.f},
+                             });
+
+    coordinator.AddComponent(entity,
+                             Rotational{.angular_velocity = glm::vec3{
+                                            0.f,
+                                            0.f,
+                                            random_angular_velocity(generator),
+                                        }});
 
     coordinator.AddComponent(entity,
                              Transform{
@@ -131,13 +148,29 @@ void App::run() {
                                                     random_color(generator),
                                                 }});
   }
-  float dt = 0.0f;
 
+  double lastTime = glfwGetTime();
+  int nbFrames = 0;
+
+  float dt = 0.0f;
   while (!window_manager.ShouldClose()) {
     auto start_time = std::chrono::high_resolution_clock::now();
 
+    // Measure speed
+    double currentTime = glfwGetTime();
+    nbFrames++;
+    if (currentTime - lastTime >=
+        1.0) {  // If last prinf() was more than 1 sec ago
+      // printf and reset timer
+      std::cout << std::fixed << std::setprecision(4)
+                << 1000.0 / double(nbFrames) << " ms/frame\n";
+      nbFrames = 0;
+      lastTime += 1.0;
+    }
+
     render_system->Update(coordinator, dt);
     physics_system->Update(coordinator, dt);
+    rotational_system->Update(coordinator, dt);
 
     // swap
     window_manager.Update();
