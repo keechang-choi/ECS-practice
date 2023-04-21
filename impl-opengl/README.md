@@ -1,3 +1,19 @@
+# Setup and Build
+
+- windows
+  - mingw
+  - glm
+  - glfw
+- linux
+  - 
+
+```
+cmake . -G "MinGW Makefiles"
+mingw32-make.exe
+```
+
+
+
 # ECS OpenGL implementation
 
 reference: https://austinmorlan.com/posts/entity_component_system/

@@ -1,2 +1,8 @@
 **/CMakeFiles/*
 **/Makefile
+impl-opengl/CMakeCache.txt
+impl-opengl/CMakeLists.txt
+impl-opengl/README.md
+impl-opengl/cmake_install.cmake
+impl-opengl/third-party/glad/cmake_install.cmake
+impl-opengl/third-party/glad/libglad.a
